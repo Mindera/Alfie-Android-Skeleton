@@ -1,0 +1,72 @@
+name: Auto Label PR
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  auto-label:
+    name: Auto Label
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v41
+        with:
+          files_yaml: |
+            documentation:
+              - '**/*.md'
+            ai-config:
+              - '.github/copilot/**'
+              - '.github/agents/**'
+            tests:
+              - '**/test/**/*.kt'
+              - '**/androidTest/**/*.kt'
+              - '**/*Test.kt'
+              - '**/*Tests.kt'
+              
+      - name: Add documentation label
+        if: steps.changed-files.outputs.documentation_any_changed == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              labels: ['documentation']
+            })
+            
+      - name: Add ai-config label
+        if: steps.changed-files.outputs.ai-config_any_changed == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              labels: ['ai-config']
+            })
+            
+      - name: Add tests label
+        if: steps.changed-files.outputs.tests_any_changed == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              labels: ['tests']
+            })

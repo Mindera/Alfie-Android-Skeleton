@@ -1,0 +1,12 @@
+queue_rules:
+  - name: default
+    conditions:
+      - check-success=check-results
+      - check-success=lint
+      - check-success=unit-tests
+      - check-success=ui-tests
+    merge_method: squash
+    merge_commit_message_template: |
+      {{ title }} (#{{ number }})
+      
+      {{ body }}

@@ -1,0 +1,50 @@
+================================================================================
+PR METRICS REPORT
+Generated: 2026-01-21 09:00:00 UTC
+Period: Last 30 days
+Repository: neteinstein/Alfie-Android-Skeleton
+================================================================================
+
+## SUMMARY
+- PRs Analyzed: 15
+- Unique PR Authors: 5
+- Unique Reviewers: 3
+- Total Reviews: 42
+- Total Review Comments: 87
+
+## PR AUTHORS
+Total: 5
+  - alice
+  - bob
+  - charlie
+  - david
+  - eve
+
+## REVIEWER ACTIVITY
+
+| Reviewer | Reviews | Comments | Comments Implying Code Changes |
+|----------|---------|----------|--------------------------------|
+| alice | 18 | 35 | 20 |
+| bob | 15 | 28 | 15 |
+| charlie | 9 | 24 | 5 |
+
+## AVERAGE REVIEW TIME
+Average time to first review: 4.25 hours
+Median time to first review: 3.50 hours
+
+## APPROVED PRs THAT FAILED PIPELINE
+Total: 2
+  - PR #123
+    Failed checks: Unit Tests, Lint
+  - PR #125
+    Failed checks: UI Tests
+
+## INACTIVE REVIEWERS
+Team members who have not reviewed code:
+  - david
+  - eve
+
+================================================================================
+
+This is a sample output showing what the PR metrics report looks like.
+The actual report will be generated based on your repository's PR activity.

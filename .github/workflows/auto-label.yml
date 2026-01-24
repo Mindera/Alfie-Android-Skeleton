@@ -34,6 +34,9 @@ jobs:
               - '**/androidTest/**/*.kt'
               - '**/*Test.kt'
               - '**/*Tests.kt'
+            kotlin:
+              - '**/*.kt'
+              - '**/*.kts'
               
       - name: Add documentation label
         if: steps.changed-files.outputs.documentation_any_changed == 'true'
@@ -69,4 +72,104 @@ jobs:
               repo: context.repo.repo,
               issue_number: context.issue.number,
               labels: ['tests']
+            })
+            
+      - name: Add code-change label
+        if: steps.changed-files.outputs.kotlin_any_changed == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              labels: ['code-change']
+            })
+            
+      - name: Check if tiny change
+        if: steps.changed-files.outputs.kotlin_any_changed == 'true'
+        id: tiny-check
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: diff } = await github.rest.repos.compareCommits({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              base: context.payload.pull_request.base.sha,
+              head: context.payload.pull_request.head.sha
+            });
+            
+            let totalLines = 0;
+            for (const file of diff.files || []) {
+              if (file.filename.endsWith('.kt') || file.filename.endsWith('.kts')) {
+                // file.changes is the sum of additions and deletions
+                totalLines += (file.changes || 0);
+              }
+            }
+            
+            core.setOutput('is_tiny', totalLines < 10 ? 'true' : 'false');
+            
+      - name: Add tiny label
+        if: steps.tiny-check.outputs.is_tiny == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              labels: ['tiny']
+            })
+            
+      - name: Check commit author
+        id: author-check
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: commits } = await github.rest.pulls.listCommits({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number
+            });
+            
+            // Check if any commit is from AI (Copilot or other bots)
+            const hasAICommit = (commits || []).some(commit => {
+              const author = commit.commit?.author;
+              if (!author) return false;
+              
+              const email = (author.email || '').toLowerCase();
+              const name = (author.name || '').toLowerCase();
+              
+              // Check for bot email patterns
+              return email.endsWith('copilot@users.noreply.github.com') ||
+                     /\[bot\]@users\.noreply\.github\.com$/.test(email) ||
+                     email === 'copilot@github.com' ||
+                     name.includes('[bot]') ||
+                     email.startsWith('github-actions[bot]@');
+            });
+            
+            core.setOutput('is_ai', hasAICommit ? 'true' : 'false');
+            
+      - name: Add AI label
+        if: steps.author-check.outputs.is_ai == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              labels: ['AI']
+            })
+            
+      - name: Add human label
+        if: steps.author-check.outputs.is_ai == 'false'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              labels: ['human']
             })

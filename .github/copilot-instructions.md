@@ -71,6 +71,20 @@ For detailed guidelines specific to your role, please refer to the appropriate a
 - Documentation anti-patterns
 - Keeping documentation in sync with code
 
+### 5. [CI/CD Pipeline Agent](agents/automation.agent.md)
+**Role**: Continuous Integration and Deployment automation
+
+**Covers**:
+- GitHub Actions workflows and automation
+- Build pipeline configuration and optimization
+- Test automation in CI/CD (unit, UI, snapshot tests)
+- Deployment strategies (Play Store, Firebase)
+- Artifact management and caching
+- Secrets management and security
+- Workflow troubleshooting and debugging
+- Performance optimization
+- Monitoring and metrics collection
+
 ## Quick Reference
 
 ### Technology Stack Summary
@@ -95,6 +109,7 @@ For detailed guidelines specific to your role, please refer to the appropriate a
 2. **For Testing Tasks**: Start with [Tester Agent](agents/tester.md)
 3. **For Metrics and Analysis**: Start with [Metrics Analyst Agent](agents/metrics-analyst.md)
 4. **For Documentation Tasks**: Start with [TechWriter Agent](agents/techwriter.agent.md)
+5. **For CI/CD and Automation**: Start with [CI/CD Pipeline Agent](agents/automation.agent.md)
 
 ## Contributing
 

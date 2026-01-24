@@ -19,7 +19,7 @@ GITHUB_API_URL = "https://api.github.com"
 GITHUB_REPOSITORY = os.environ.get("GITHUB_REPOSITORY", "")
 REPO_OWNER = os.environ.get("GITHUB_REPOSITORY_OWNER", "")
 REPO_NAME = GITHUB_REPOSITORY.split("/")[-1] if "/" in GITHUB_REPOSITORY else ""
-GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
+GITHUB_TOKEN = os.environ.get("GH_TOKEN", "")
 LOOKBACK_DAYS = int(os.environ.get("LOOKBACK_DAYS", "30"))
 
 # Headers for API requests

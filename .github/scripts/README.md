@@ -79,8 +79,8 @@ pip install requests
 
 # Set environment variables
 export GITHUB_TOKEN="your_github_token"
-export GITHUB_REPOSITORY_OWNER="neteinstein"
-export GITHUB_REPOSITORY="neteinstein/Alfie-Android-Skeleton"
+export GITHUB_REPOSITORY_OWNER="mindera"
+export GITHUB_REPOSITORY="mindera/Alfie-Android-Skeleton"
 export LOOKBACK_DAYS=30
 
 # Run the script
@@ -95,7 +95,7 @@ The generated report includes:
 PR METRICS REPORT
 Generated: 2026-01-21 16:21:53 UTC
 Period: Last 30 days
-Repository: neteinstein/Alfie-Android-Skeleton
+Repository: mindera/Alfie-Android-Skeleton
 
 ## SUMMARY
 - PRs Analyzed: X

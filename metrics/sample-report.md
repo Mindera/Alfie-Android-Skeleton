@@ -90,13 +90,13 @@
 
 ## 📋 Detailed PR List
 
-| PR | Title | Author | Type | Time to Merge (hrs) | Comments | Reviews | CI Success |
-|---|---|---|---|---|---|---|---|
-| [#22](https://github.com/neteinstein/Alfie-Android-Skeleton/pull/22) | Add content to landing page tiles | copilot | 🤖 AI | 3.5 | 2 | 1 | ✅ |
-| [#21](https://github.com/neteinstein/Alfie-Android-Skeleton/pull/21) | Update navigation to use type-safe routes | copilot | 🤖 AI | 5.2 | 4 | 2 | ✅ |
-| [#20](https://github.com/neteinstein/Alfie-Android-Skeleton/pull/20) | Fix snapshot tests | neteinstein | 👤 Human | 6.8 | 3 | 1 | ⚠️ |
-| [#19](https://github.com/neteinstein/Alfie-Android-Skeleton/pull/19) | Add Paparazzi snapshot testing | copilot | 🤖 AI | 4.8 | 5 | 2 | ✅ |
-| [#18](https://github.com/neteinstein/Alfie-Android-Skeleton/pull/18) | Update README documentation | neteinstein | 👤 Human | 5.7 | 2 | 1 | ✅ |
+| PR                                                                   | Title | Author | Type | Time to Merge (hrs) | Comments | Reviews | CI Success |
+|----------------------------------------------------------------------|---|---|---|---|---|---|---|
+| [#22](https://github.com/mindera/Alfie-Android-Skeleton/pull/22)     | Add content to landing page tiles | copilot | 🤖 AI | 3.5 | 2 | 1 | ✅ |
+| [#21](https://github.com/mindera/Alfie-Android-Skeleton/pull/21) | Update navigation to use type-safe routes | copilot | 🤖 AI | 5.2 | 4 | 2 | ✅ |
+| [#20](https://github.com/mindera/Alfie-Android-Skeleton/pull/20) | Fix snapshot tests | neteinstein | 👤 Human | 6.8 | 3 | 1 | ⚠️ |
+| [#19](https://github.com/mindera/Alfie-Android-Skeleton/pull/19) | Add Paparazzi snapshot testing | copilot | 🤖 AI | 4.8 | 5 | 2 | ✅ |
+| [#18](https://github.com/mindera/Alfie-Android-Skeleton/pull/18) | Update README documentation | neteinstein | 👤 Human | 5.7 | 2 | 1 | ✅ |
 
 ## 💡 Insights & Recommendations
 

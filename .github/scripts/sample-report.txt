@@ -2,7 +2,7 @@
 PR METRICS REPORT
 Generated: 2026-01-21 09:00:00 UTC
 Period: Last 30 days
-Repository: neteinstein/Alfie-Android-Skeleton
+Repository: mindera/Alfie-Android-Skeleton
 ================================================================================
 
 ## SUMMARY

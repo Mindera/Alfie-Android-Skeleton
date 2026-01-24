@@ -1,0 +1,4 @@
+<resources>
+    <string name="landing_title">Alfie Skeleton</string>
+    <string name="tile_title_format">Tile %d</string>
+</resources>

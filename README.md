@@ -1,5 +1,6 @@
 # Alfie Android Skeleton
 
+This is a showcase for a AI Driven developed Android App.
 A boilerplate sample of an Android App Codebase with MVVM Architecture and Unit, UI and Snapshot tests together with configuration for Copilot, and several automations (PR Tests, Releases, Auto-Tagging) 
 
 ## 📋 Overview

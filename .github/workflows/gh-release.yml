@@ -13,19 +13,18 @@ on:
   workflow_call:
     secrets:
       KEYSTORE_BASE64:
-        required: false
+        required: true
       KEYSTORE_PASSWORD:
-        required: false
+        required: true
       KEY_ALIAS:
-        required: false
+        required: true
       KEY_PASSWORD:
-        required: false
+        required: true
 
 jobs:
   build-and-release:
     # If you only want to run when a keystore is provided:
     # You can use an expression here, but only allowed inside jobs
-    if: secrets.KEYSTORE_BASE64 != ''
 
     runs-on: ubuntu-latest
 
@@ -44,7 +43,6 @@ jobs:
         run: chmod +x gradlew
 
       - name: Decode Android Keystore
-        if: secrets.KEYSTORE_BASE64 != ''
         run: |
           echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > release-keystore.jks
 
@@ -53,7 +51,6 @@ jobs:
           ./gradlew clean assembleRelease
 
       - name: Sign APK/AAB (if keystore)
-        if: secrets.KEYSTORE_BASE64 != ''
         env:
           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}

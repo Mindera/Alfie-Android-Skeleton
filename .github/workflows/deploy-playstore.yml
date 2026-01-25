@@ -7,6 +7,18 @@ on:
         description: 'Release version to deploy'
         required: true
         type: string
+  workflow_call:
+    secrets:
+      KEYSTORE_BASE64:
+        required: true
+      KEYSTORE_PASSWORD:
+        required: true
+      KEY_ALIAS:
+        required: true
+      KEY_PASSWORD:
+        required: true
+      PLAY_STORE_SERVICE_ACCOUNT_JSON:
+        required: true
 
 jobs:
   deploy:

@@ -6,10 +6,6 @@ on:
     tags:
       - "v*.*.*"
   workflow_dispatch:
-# Make secrets available from a reusable context
-# If you’re using this as a reusable workflow, define them here
-# so they can be passed in from calling workflows.
-# (Optional if not calling as reusable)
   workflow_call:
     secrets:
       KEYSTORE_BASE64:

@@ -50,6 +50,10 @@ This is an Android skeleton project template designed to provide a clean, minima
 - Always use clean architecture with presentation, domain and data layers with a clear separation of concerns between them
 - Each feature should be create within it's own module
 - Use **Jetpack Navigation Compose** for navigation with type-safe routes
+- Use StateFlow for UI state management]
+- Ensure the Composable is 'Stateless' by using State Hoisting]
+- Include Preview functions for Light and Dark mode
+- Use @Inject constructor for Hilt injection
 
 ### App Modularisation
 

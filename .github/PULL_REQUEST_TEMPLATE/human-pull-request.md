@@ -67,7 +67,7 @@ Closes #
 - **Android Version**: <!-- e.g., Android 14 -->
 - **Test Results**: <!-- Paste relevant test output or indicate all passed -->
 
-```
+```bash
 <!-- Test execution commands and results -->
 ./gradlew testDebugUnitTest
 ./gradlew connectedDebugAndroidTest

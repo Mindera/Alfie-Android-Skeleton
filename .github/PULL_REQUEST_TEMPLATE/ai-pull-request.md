@@ -51,7 +51,7 @@ Closes #
 - [ ] Visual regression tests added
 
 #### Test Execution Results
-```
+```bash
 <!-- Paste test results here -->
 ./gradlew testDebugUnitTest
 ./gradlew connectedDebugAndroidTest (if applicable)
@@ -62,7 +62,7 @@ Closes #
 <!-- List any new dependencies added -->
 - [ ] No new dependencies
 - [ ] New dependencies added (list below):
-  ```gradle
+  ```toml
   <!-- Paste from gradle/libs.versions.toml -->
   ```
 

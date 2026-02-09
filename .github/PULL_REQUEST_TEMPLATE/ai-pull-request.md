@@ -63,7 +63,7 @@ Closes #
 - [ ] No new dependencies
 - [ ] New dependencies added (list below):
   ```toml
-  <!-- Paste from gradle/libs.versions.toml -->
+  # Paste from gradle/libs.versions.toml
   ```
 
 ### 🎨 Code Quality

@@ -52,10 +52,12 @@ Closes #
 
 #### Test Execution Results
 ```bash
-<!-- Paste test results here -->
+# Paste test results here
 ./gradlew testDebugUnitTest
-./gradlew connectedDebugAndroidTest (if applicable)
-./gradlew verifyPaparazziDebug (if applicable)
+# Run if instrumented tests are applicable
+./gradlew connectedDebugAndroidTest
+# Run if Paparazzi snapshot tests are applicable
+./gradlew verifyPaparazziDebug
 ```
 
 ### 📦 Dependencies

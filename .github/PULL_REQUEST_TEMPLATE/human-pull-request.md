@@ -68,7 +68,7 @@ Closes #
 - **Test Results**: <!-- Paste relevant test output or indicate all passed -->
 
 ```bash
-<!-- Test execution commands and results -->
+# Test execution commands and results
 ./gradlew testDebugUnitTest
 ./gradlew connectedDebugAndroidTest
 ./gradlew verifyPaparazziDebug

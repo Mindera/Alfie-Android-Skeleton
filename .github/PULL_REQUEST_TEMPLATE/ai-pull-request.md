@@ -54,10 +54,8 @@ Closes #
 ```bash
 # Paste test results here
 ./gradlew testDebugUnitTest
-# Run if instrumented tests are applicable
-./gradlew connectedDebugAndroidTest
-# Run if Paparazzi snapshot tests are applicable
-./gradlew verifyPaparazziDebug
+./gradlew connectedDebugAndroidTest  # Run if instrumented tests are applicable
+./gradlew verifyPaparazziDebug       # Run if Paparazzi snapshot tests are applicable
 ```
 
 ### 📦 Dependencies
@@ -123,5 +121,4 @@ Closes #
 - [ ] CI checks are passing
 
 ### 👥 Reviewers
-<!-- Tag relevant reviewers -->
-@copilot <!-- Auto-assigned via CODEOWNERS -->
+<!-- Tag relevant reviewers (auto-assigned via CODEOWNERS) -->

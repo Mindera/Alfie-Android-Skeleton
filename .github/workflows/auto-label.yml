@@ -15,13 +15,13 @@ jobs:
     
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
           fetch-depth: 0
           
       - name: Get changed files
         id: changed-files
-        uses: tj-actions/changed-files@v41
+        uses: tj-actions/changed-files@716b1e13042866565e00e85fd4ec490e186c4a2f # v41
         with:
           files_yaml: |
             documentation:
@@ -40,7 +40,7 @@ jobs:
               
       - name: Add documentation label
         if: steps.changed-files.outputs.documentation_any_changed == 'true'
-        uses: actions/github-script@v7
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         with:
           script: |
             github.rest.issues.addLabels({
@@ -52,7 +52,7 @@ jobs:
             
       - name: Add ai-config label
         if: steps.changed-files.outputs.ai-config_any_changed == 'true'
-        uses: actions/github-script@v7
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         with:
           script: |
             github.rest.issues.addLabels({
@@ -64,7 +64,7 @@ jobs:
             
       - name: Add tests label
         if: steps.changed-files.outputs.tests_any_changed == 'true'
-        uses: actions/github-script@v7
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         with:
           script: |
             github.rest.issues.addLabels({
@@ -76,7 +76,7 @@ jobs:
             
       - name: Add code-change label
         if: steps.changed-files.outputs.kotlin_any_changed == 'true'
-        uses: actions/github-script@v7
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         with:
           script: |
             github.rest.issues.addLabels({
@@ -89,7 +89,7 @@ jobs:
       - name: Check if tiny change
         if: steps.changed-files.outputs.kotlin_any_changed == 'true'
         id: tiny-check
-        uses: actions/github-script@v7
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         with:
           script: |
             const { data: diff } = await github.rest.repos.compareCommits({
@@ -111,7 +111,7 @@ jobs:
             
       - name: Add tiny label
         if: steps.tiny-check.outputs.is_tiny == 'true'
-        uses: actions/github-script@v7
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         with:
           script: |
             github.rest.issues.addLabels({
@@ -123,7 +123,7 @@ jobs:
             
       - name: Check commit author
         id: author-check
-        uses: actions/github-script@v7
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         with:
           script: |
             const { data: commits } = await github.rest.pulls.listCommits({
@@ -152,7 +152,7 @@ jobs:
             
       - name: Add AI label
         if: steps.author-check.outputs.is_ai == 'true'
-        uses: actions/github-script@v7
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         with:
           script: |
             github.rest.issues.addLabels({
@@ -164,7 +164,7 @@ jobs:
             
       - name: Add human label
         if: steps.author-check.outputs.is_ai == 'false'
-        uses: actions/github-script@v7
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         with:
           script: |
             github.rest.issues.addLabels({
